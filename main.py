@@ -74,7 +74,7 @@ class Test(unittest.TestCase):
         self.assertFalse(len(menu.accord) == 0, menu.accord)
     def test_equal(self):
         menu = Menu()
-        menu.accord = ['F', 'A', 'G']
+        menu.accord   = ['F', 'A', 'G']
         for a in menu.accord:
             self.assertIn(a, all_accords, "Введенный аккорд не существует")
     def test_for_str(self):
