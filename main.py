@@ -33,13 +33,14 @@ class Menu:
         print("Выбраннее аккорды:", self.accords, "\nДлина мелодии: ", self.length)
 
 
-#                      В данном классе используются аккорды и длина
-#                           заданные в экземпляре класса Menu
-
+#                       Класс для взаимодействия с мелодией
 
 class MusicActions():
     def print_music(self):
         print("Полученная мелодия: \n", ''.join(map(str, music)))
+
+#                      В данном классе используются аккорды и длина
+#                 заданные в экземпляре класса Menu. Расширяет класс MusicActions
 
 
 class Generator(MusicActions):
