@@ -27,7 +27,11 @@ class Menu(unittest.TestCase):
 
     def get_length(self):
         self.length = int(input())
-        return self.length
+        if self.length > 0:
+            return self.length
+        else:
+            print("Длина мелодии не может быть отрицательной или равняться нулю")
+            exit(0)
 
     def show_menu(self):
         print("Добро пожаловать в прогу по генерации аккордов\n"
@@ -41,7 +45,7 @@ class Menu(unittest.TestCase):
         self.insert_accords(self.accord)
         print("Выберите длину мелодии: \n")
         self.get_length()
-        print("Выбраннее аккорды:", self.accords, "\nДлина мелодии: ", self.length)
+        print("Выбранные аккорды:", self.accords, "\nДлина мелодии: ", self.length)
 
 
 #                       Класс для взаимодействия с мелодией
@@ -81,6 +85,10 @@ class Test(unittest.TestCase):
         tests = ['A', 'F', 'G']
         test = Generator(5, tests)
         self.assertFalse(test.generate_music() is list)
+    def test_for_length(self):
+        test = Menu()
+        test.length = -2
+        self.assertFalse(test.length < 0)
 
 
 def main():
@@ -93,4 +101,4 @@ def main():
 
 #
 if __name__ == '__main__':
-    unittest.main()     #Чтобы запустить программу без тестов: убрать unittest.
+    main()     #Чтобы запустить программу без тестов: убрать unittest.
